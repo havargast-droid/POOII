@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mapa de Rutas - Trayectos</title>
+
+  <!-- Leaflet + OpenStreetMap: gratis, sin API Key -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 24px 16px; background: #f4f6f8; color: #1d2733;
+           font-family: Arial, Helvetica, sans-serif; }
+    .wrap { max-width: 1100px; margin: 0 auto; }
+    .card { background: #fff; border-radius: 10px; padding: 22px 24px; margin-bottom: 20px;
+            box-shadow: 0 1px 6px rgba(0,0,0,.12); }
+    h1 { font-size: 22px; margin: 0 0 18px; }
+    h2 { font-size: 20px; margin: 0 0 16px; }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .row input { flex: 1; min-width: 160px; padding: 10px 12px; font-size: 15px;
+                 border: 1px solid #ccd3da; border-radius: 6px; }
+    button { padding: 10px 18px; font-size: 15px; color: #fff; background: #1a3a6b;
+             border: 0; border-radius: 6px; cursor: pointer; }
+    button:hover { background: #14305a; }
+    .msg { margin-top: 12px; font-size: 15px; }
+    .ok { color: #1f7a2e; }
+    .error { color: #b3261e; }
+    #map { height: 520px; border-radius: 8px; margin-top: 16px; }
+    #info { margin-top: 14px; font-size: 14px; color: #44505c; }
+    ul#paradas { padding-left: 22px; line-height: 1.7; }
+    .pin { background: #1a3a6b; color: #fff; width: 28px; height: 28px; border-radius: 50%;
+           text-align: center; line-height: 28px; font-weight: bold; font-size: 13px;
+           border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.5); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Consulta de rutas <small style="font-size:12px;color:#7a8794"></small></h1>
+
+    <div class="card">
+      <h2>1. Iniciar sesión</h2>
+      <div class="row">
+        <input type="text" id="usuario" placeholder="Usuario" autocomplete="username" />
+        <input type="password" id="clave" placeholder="Contraseña" autocomplete="current-password" />
+        <input type="text" id="apikey" placeholder="APIKey" />
+        <button onclick="iniciarSesion()">Iniciar sesión</button>
+      </div>
+      <div id="msgLogin" class="msg"></div>
+    </div>
+
+    <div class="card">
+      <h2>2. Consultar una ruta</h2>
+      <div class="row">
+        <input type="text" id="codigoRuta" placeholder="Código de ruta. Ej: RUTA_E4_01" />
+        <button onclick="cargarRuta()">Ver trayecto en el mapa</button>
+      </div>
+      <div id="msgRuta" class="msg"></div>
+      <div id="map"></div>
+      <div id="info"></div>
+      <ul id="paradas"></ul>
+    </div>
+  </div>
+
+  <script src="./index.js?v=3"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+Plantilla Excel (Plantilla_Cargue_Trayectos_E4.xlsx), primera hoja, fila 1 = encabezados:
+A IDENTIFICACION_CONDUCTOR | B PLACA | C CODIGO_RUTA | D UBICACION | E ORDEN_PARADA
+Antes de probar, reemplaza REEMPLAZAR_CC_CONDUCTOR y REEMPLAZAR_PLACA por datos reales
+(conductor tipo C asociado en estado PO al vehiculo, con documentos Habilitados).
+La ultima fila de ejemplo falla a proposito (conductor/placa inexistentes, orden no numerico).

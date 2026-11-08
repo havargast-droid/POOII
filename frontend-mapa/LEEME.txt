@@ -1,0 +1,5 @@
+Para ver el mapa (Leaflet + OpenStreetMap, no necesita API Key):
+1. Arranca la aplicacion Spring Boot (puerto 9001) y crea un trayecto (POST /trayecto).
+2. Espera hasta 90 segundos a que la tarea programada calcule las coordenadas (Nominatim).
+3. Desde esta carpeta (frontend-mapa), corre: python3 -m http.server 8000
+4. Abre http://localhost:8000/viewRuta.html, escribe el codigo de ruta (ej: RUTA001) y pulsa "Ver ruta".
